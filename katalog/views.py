@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from katalog.models import CatalogItem
+from models import CatalogItem
 
 # TODO: Create your views here.
 
@@ -10,6 +10,6 @@ def show_catalog(request):
         'nama': 'Nabila',
         'npm' : '2106653344'
     }
-
+    print(data_catalog)
     return render(request, "katalog.html", context)
 
