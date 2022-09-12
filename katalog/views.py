@@ -5,7 +5,7 @@ from katalog.models import CatalogItem
 
 def show_catalog(request):
     data_catalog = CatalogItem().objects.all()
-    data_catalog = {
+    context = {
         'list_katalog': data_catalog,
         'nama': 'Nabila',
         'npm' : '2106653344'
