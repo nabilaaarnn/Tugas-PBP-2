@@ -3,7 +3,7 @@
 # Kelas : PBP - B
 
 
-# Link git hub : https://github.com/nabilaaarnn/Tugas-PBP-2
+# Link git hub : https://tugas2rizka.herokuapp.com/katalog/
 
 # Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html;
 
