@@ -1,62 +1,67 @@
-# Template Proyek Django PBP
+# Nama  : Rizka Nisrina Nabila
+# NPM   : 2106653344
+# Kelas : PBP - B
 
-Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
 
-*Read this in other languages: [Indonesian](README.md), [English](README.en.md)*
+# Link git hub : https://github.com/nabilaaarnn/Tugas-PBP-2
 
-## Pendahuluan
+# Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html;
 
-Repositori ini merupakan sebuah template yang dirancang untuk membantu mahasiswa yang sedang mengambil mata kuliah Pemrograman Berbasis Platform (CSGE602022) mengetahui struktur sebuah proyek aplikasi Django serta file dan konfigurasi yang penting dalam berjalannya aplikasi. Kamu dapat dengan bebas menyalin isi dari repositori ini atau memanfaatkan repositori ini sebagai pembelajaran sekaligus awalan dalam membuat sebuah proyek Django.
 
-## Cara Menggunakan
+# Jelaskan kenapa menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
 
-Apabila kamu ingin menggunakan repositori ini sebagai repositori awalan yang nantinya akan kamu modifikasi:
+Virtual environment memiliki kegunaan untuk memisahkan pengaturan dan *package* yang diinstal pada setiap proyek supaya terisolasi. Hal ini dilakukan agar kita tetap dapat mengerjakan beberapa proyek dengan modul yang sama namun dengan versi berbeda. Sebagai contoh, misalnya kita membuat proyek Django dengan versi 1.1 dan proyek aplikasi kita dapat berjalan dengan baik pada modul versi 1.1 ini. Lalu, selang beberapa waktu kemudian, Django merilis versi baru yang dimana versi baru ini dibutuhkan untuk membuat proyek yang lain. Setelah upgrade ke versi yang baru, proyek kita sebelumnya yang menggunakan versi lama ternyata tidak dapat berjalan pada versi baru ini. Untuk itu, kita membutuhkan *virtual environment* agar setiap aplikasi mempunyai modulnya masing-masing.
 
-1. Buka laman GitHub repositori templat kode, lalu klik tombol "**Use this template**"
-   untuk membuat salinan repositori ke dalam akun GitHub milikmu.
-2. Buka laman GitHub repositori yang dibuat dari templat, lalu gunakan perintah
-   `git clone` untuk menyalin repositorinya ke suatu lokasi di dalam sistem
-   berkas (_filesystem_) komputermu:
+Lalu, apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment? Ya bisa, tetapi hal ini menyebabkan modul-modulnya dapat diakses dari luar sehingga semua aplikasi bisa mengakses dan menggunakannya.
 
-   ```shell
-   git clone <URL ke repositori di GitHub> <path ke suatu lokasi di filesystem>
-   ```
-3. Masuk ke dalam repositori yang sudah di-_clone_ dan jalankan perintah berikut
-   untuk menyalakan _virtual environment_:
+# Jelaskan bagaimana cara kamu mengimplementasikan poin 1 sampai dengan 4 di atas.
+from django.urls import path
+from katalog.views import show_catalog
 
-   ```shell
-   python -m venv env
-   ```
-4. Nyalakan environment dengan perintah berikut:
+app_name = 'katalog'
 
-   ```shell
-   # Windows
-   .\env\Scripts\activate
-   # Linux/Unix, e.g. Ubuntu, MacOS
-   source env/bin/activate
-   ```
-5. Install dependencies yang dibutuhkan untuk menjalankan aplikasi dengan perintah berikut:
+urlpatterns = [
+    path('', show_catalog, name='show_catalog'),
+]
 
-   ```shell
-   pip install -r requirements.txt
-   ```
+Bagian urls yang berada pada folder katalog tersebut, digunakan untuk melakukan routing terhadap fungsi views yang telah dibuat, nantinya akan dirender untuk mapping melalui file HTML di templates sehingga dapat ditampilkan lewat browser.
 
-6. Jalankan aplikasi Django menggunakan server pengembangan yang berjalan secara
-   lokal:
+from django.shortcuts import render
+from katalog.models import CatalogItem
 
-   ```shell
-   python manage.py runserver
-   ```
-7. Bukalah `http://localhost:8000` pada browser favoritmu untuk melihat apakah aplikasi sudah berjalan dengan benar.
+def show_catalog(request):
+    data_catalog = CatalogItem.objects.all()
+    context = {
+        'list_katalog': data_catalog,
+        'nama': 'Nabila',
+        'npm' : '2106653344'
+    }
+    print(data_catalog)
+    return render(request, "katalog.html", context)
 
-## Contoh Deployment 
+Pada bagian fungsi views diatas berfungsi untuk memanggil query melalui models ke database. Ketika data telah diperoleh akan dirender di views dengan fungsi di atas.
 
-Pada template ini, deployment dilakukan dengan memanfaatkan GitHub Actions sebagai _runner_ dan Heroku sebagai platform Hosting aplikasi. 
+from django.db import models
 
-Untuk melakukan deployment, kamu dapat melihat instruksi yang ada pada [Tutorial 0](https://pbp-fasilkom-ui.github.io/ganjil-2023/assignments/tutorial/tutorial-0).
+class CatalogItem(models.Model):
+    item_name = models.CharField(max_length=255)
+    item_price = models.BigIntegerField()
+    item_stock = models.IntegerField()
+    description = models.TextField()
+    rating = models.IntegerField()
+    item_url = models.URLField()
 
-Untuk contoh aplikasi Django yang sudah di deploy, dapat kamu akses di [https://django-pbp-template.herokuapp.com/](https://django-pbp-template.herokuapp.com/)
+Pada models tersebut terdapat CatalogItem isinya merupakan nama-nama, ataupun harga, stok, deskripsi, dan lain-lain yang nantinya akan dipakai pada saat html untuk dipanggil beserta isinya. Data ini di akses dari database.
 
-## Credits
+    {% for data in list_katalog %}
+    <tr>
+        <th>{{data.item_name}}</th>
+        <th>{{data.item_price}}</th>
+        <th>{{data.item_stock}}</th>
+        <th>{{data.rating}}</th>
+        <th>{{data.description}}</th>
+        <th>{{data.item_url}}</th>
+    </tr>
+{% endfor %}
 
-Template ini dibuat berdasarkan [PBP Ganjil 2021](https://gitlab.com/PBP-2021/pbp-lab) yang ditulis oleh Tim Pengajar Pemrograman Berbasis Platform 2021 ([@prakashdivyy](https://gitlab.com/prakashdivyy)) dan [django-template-heroku](https://github.com/laymonage/django-template-heroku) yang ditulis oleh [@laymonage, et al.](https://github.com/laymonage). Template ini dirancang sedemikian rupa sehingga mahasiswa dapat menjadikan template ini sebagai awalan serta acuan dalam mengerjakan tugas maupun dalam berkarya.
+Pada html ini melakukan mapping, iterasi terjadi terhadap variabel list_katalog yang telah dibuat pada views didalam CatalogItem dan juga melakukan pemanggilan nama ataupun variabel spesifik dari objek yang dibuat untuk mendapatkan data dari objek tersebut. Iterasi ini adalah untuk menampilkan di web HTMLnya nanti.
