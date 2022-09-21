@@ -97,3 +97,5 @@ urlpatterns = [
 ##  Mengakses tiga URL di poin 6 menggunakan Postman, menangkap screenshot, dan menambahkannya ke dalam README.md
 
 ![](messageImage_1663769480804.jpg)
+![](messageImage_1663769797074.jpg)
+![](messageImage_1663769844865.jpg)
