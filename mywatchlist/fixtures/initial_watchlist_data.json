@@ -1,6 +1,6 @@
 [
     {
-        "model": "mywatchlist.mywatchlist",
+        "model": "mywatchlist.Mywatchlist",
         "pk": 1,
         "fields": {
             "watched": "Sudah",
@@ -11,7 +11,7 @@
         }
     },
     {
-        "model": "mywatchlist.mywatchlist",
+        "model": "mywatchlist.Mywatchlist",
         "pk": 2,
         "fields": {
             "watched": "Sudah",
@@ -22,7 +22,7 @@
         }
     },
     {
-        "model": "mywatchlist.mywatchlist",
+        "model": "mywatchlist.Mywatchlist",
         "pk": 3,
         "fields": {
             "watched": "Sudah",
@@ -33,7 +33,7 @@
         }
     },
     {
-        "model": "mywatchlist.mywatchlist",
+        "model": "mywatchlist.Mywatchlist",
         "pk": 4,
         "fields": {
             "watched": "Sudah",
@@ -44,7 +44,7 @@
         }
     },
     {
-        "model": "mywatchlist.mywatchlist",
+        "model": "mywatchlist.Mywatchlist",
         "pk": 5,
         "fields": {
             "watched": "Sudah",
@@ -55,7 +55,7 @@
         }
     },
     {
-        "model": "mywatchlist.mywatchlist",
+        "model": "mywatchlist.Mywatchlist",
         "pk": 6,
         "fields": {
             "watched": "Sudah",
@@ -66,7 +66,7 @@
         }
     },
     {
-        "model": "mywatchlist.mywatchlist",
+        "model": "mywatchlist.Mywatchlist",
         "pk": 7,
         "fields": {
             "watched": "Sudah",
@@ -77,7 +77,7 @@
         }
     },
     {
-        "model": "mywatchlist.mywatchlist",
+        "model": "mywatchlist.Mywatchlist",
         "pk": 8,
         "fields": {
             "watched": "Sudah",
@@ -88,7 +88,7 @@
         }
     },
     {
-        "model": "mywatchlist.mywatchlist",
+        "model": "mywatchlist.Mywatchlist",
         "pk": 9,
         "fields": {
             "watched": "Belum",
@@ -99,7 +99,7 @@
         }
     },
     {
-        "model": "mywatchlist.mywatchlist",
+        "model": "mywatchlist.Mywatchlist",
         "pk": 10,
         "fields": {
             "watched": "Belum",
