@@ -1,0 +1,112 @@
+[
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 1,
+        "fields": {
+            "watched": "Sudah",
+            "title": "Big Mouth",
+            "rating": 5,
+            "release_date": "2022-06-09",
+            "review": "Pemainnya ganteng dan cantik. Sebenernya greget karena lama banget big mouse terungkap, tapi keren banget ceritanya"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 2,
+        "fields": {
+            "watched": "Sudah",
+            "title": "Minions: The Rise of Gru",
+            "rating": 5,
+            "release_date": "2022-06-28",
+            "review": "Gregetaan, kocak, lucu sih. Enteng juga jalan ceritanya, seru."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 3,
+        "fields": {
+            "watched": "Sudah",
+            "title": "Doctor Strange in the Multiverse of Madness",
+            "rating": 5,
+            "release_date": "2022-05-05",
+            "review": "Keren banget OMG. Film marvel emang gada obatnya. Tapi ini lebih keren karena ada Wanda Maximoff dan Benedict Cumberbatch yang ganteng banget."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 4,
+        "fields": {
+            "watched": "Sudah",
+            "title": "KKN di Desa Penari",
+            "rating": 4,
+            "release_date": "2022-04-30",
+            "review": "Huhu gendoruwonya kocak, kurang panjang durasinya. Tapi udh nunggu ini bertahun-tahun OMG. Tapi keren banget."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 5,
+        "fields": {
+            "watched": "Sudah",
+            "title": "The Doll 3",
+            "rating": 5,
+            "release_date": "2022-05-26",
+            "review": "Keren banget, lebih keren dari yang kedua. Tapi kurang panjang durasinya. Editingnya keren tapi kocak bgtt HAHAH ngakak mulu yang ada."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 6,
+        "fields": {
+            "watched": "Sudah",
+            "title": "Ivanna",
+            "rating": 4,
+            "release_date": "2022-07-14",
+            "review": "Keren banget visualnya. Tapi alurnya ketebak, cuman merindink sih pas nonton."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 7,
+        "fields": {
+            "watched": "Sudah",
+            "title": "Gara-Gara Warisan",
+            "rating": 4,
+            "release_date": "2022-04-30",
+            "review": "Alurnya biasa, tapi ceritanya bagus. Tentang keluarga banget, ringan juga jalan ceritanya"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 8,
+        "fields": {
+            "watched": "Sudah",
+            "title": "Ben & Jody",
+            "rating": 5,
+            "release_date": "2022-01-27",
+            "review": "Keren banget sih. Ini bagus banget buat film indonesia."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 9,
+        "fields": {
+            "watched": "Belum",
+            "title": "Reply 1988",
+            "rating": 5,
+            "release_date": "2015-11-06",
+            "review": "Katanya bagus banget. Jujur belom nonton karena ga sempet, dan kurang tertarik. Hihi."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 10,
+        "fields": {
+            "watched": "Belum",
+            "title": "Money Heist: Korea-Joint Economic Area",
+            "rating": 4,
+            "release_date": "2022-06-24",
+            "review": "Nonton tapi ga sampe abis karena alurnya mirip kayak yang money heist asli. Huhu tapi keren banget kok."
+        }
+    }
+]
