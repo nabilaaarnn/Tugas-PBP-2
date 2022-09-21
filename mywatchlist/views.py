@@ -4,7 +4,7 @@ from mywatchlist.models import MyWatchList
 # Create your views here.
 
 def show_mywatchlist(request):
-    data_mywatchList = MyWatchList.objects.all()
+    data_mywatchlist = MyWatchList.objects.all()
     context = {
         'watchlist' : data_mywatchlist,
         'nama': 'Nabila',
