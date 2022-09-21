@@ -3,10 +3,11 @@
 # Kelas : PBP - B
 
 
-# Link git hub : https://github.com/nabilaaarnn/Tugas-PBP-2
+# Link git hub : https://tugas2rizka.herokuapp.com/katalog/
 
 # Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html;
 
+![PBP](https://user-images.githubusercontent.com/101660408/190176972-d1740021-16dc-45f6-b930-5bf73afcc001.png)
 
 # Jelaskan kenapa menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
 
