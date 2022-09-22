@@ -105,34 +105,20 @@ urlpatterns = [
     path('xml/<int:id', show_xml_by_id, name='show_xml_by_id'), 
 ]
 
-- Melakukan deployment ke Heroku
-    a. membuat berkas dpl.yml berisi kode template
+- Membuat folder templates mywatchlist.html untuk tempat file HTML yang akan dirender oleh method di views.py
 
-    b. membuat sebuah berkas .gitignore berisi kode template dari website https://djangowaves.com/tips-tricks/gitignore-for-a-django-project/
+- Membuat clas Testing yang berisi method untuk menge-test apakah url sudah work
+class html_mywatchlist (TestCase):
+    def test_url_exists_at_correct_location(self):
+        response = self.client.get("/mywatchlist/html/")
+        self.assertEqual(response.status_code, 200)
+        
+- Menambahkan potongan kode release: sh -c 'python manage.py migrate && python manage.py loaddata initial_mywatchlist_data.json' ke procfile
+release: sh -c 'python manage.py migrate && python manage.py loaddata initial_mywatchlist_data.json'
+web: gunicorn project_django.wsgi --log-file -
 
-    c. menambah beberapa konfigurasi pada file settings.py proyek Django
-    import os
-    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+- Add, commit, dan push ke repository github untuk dideploy otomatis ke Django. Selesai pekerjaan sudah beres, berdoa semoga aman. :)
 
-    d. menambah * ke dalam ALLOWED_HOSTS pada settings.py untuk dapat memberikan akses ke semua host
-
-    e. menambah middleware baru ke dalam variabel MIDDLEWARE di settings.py
-
-    f. Add, commit, dan push perubahan yang dilakukan ke GitHub pribadi.
-
-    g. menambah aplikasi baru di heroku.
-
-    h. membuka konfigurasi repositori GitHub dan membuka bagian Secrets untuk GitHub Actions (Settings -> Secrets -> Actions).
-
-    i. menambah variabel repository secret 
-    (NAME)HEROKU_APP_NAME
-    (VALUE)HEROKU_API_KEY
-
-    j. Simpan variabel-variabel tersebut.
-    
-    k. membuka tab GitHub Actions dan jalankan kembali workflow yang gagal.
-    
 #  Postman
 
 http://localhost:8000/mywatchlist/html
