@@ -1,8 +1,47 @@
+# Assignment 3 PBP
 
+Nama : Rizka Nisrina Nabila
+NPM : 2106653344
+Kelas : PBP - B
 
+# Link
 
+Main Page : 
+https://tugas2rizka.herokuapp.com/
 
-## 3. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+Main Page :
+https://tugas2rizka.herokuapp.com/katalog/
+
+Mywatchlist Page :
+https://tugas2rizka.herokuapp.com/mywatchlist/
+
+# 1. Perbedaan XML, HTML, dan JSON
+
+## XML (Extensible Markup Language)
+1. Berguna untuk menyimpan data dan pertukaran data
+2. Tag bersifat case sensitive
+3. Data yang disimpan di-wrap oleh tag
+4. Ukuran dokumen dan file besar
+5. Harus menggunakan tag penutup
+
+## HTML (Hypertext Markup Language)
+1. Berguna untuk mendisplay suatu dokumen ke web browser
+2. Tag bersifat insensitive
+3. Data yang ingin ditampilkan di-wrap oleh tag
+4. Merupakan bahasa markup standar
+5. Tidak mengandung informasi strukturan
+
+## JSON (JavaScript Obeject Notation)
+1. Berguna untuk menyimpan data dan pertukaran data
+2. Tidak ada tag atau data yang tidak terpakai
+3. Lebih mudah digunakan sekaligus lebih cepat daripada XML saat implementasi AJAX
+4. Data disimpan dalam bentuk string
+5. Ukuran dokumen ringkas dan mudah dibaca
+
+# 2. Data delivery dalam pengimplementasian sebuah platform
+Data delivery dibutuhkan saat akan memindahkan data ddari satu platform ke platform lain. Data delivery bisa saja membuat terjadinya transfer data sehingga untuk aplikasi yang dikembangkan pada berbagai platform berbeda bisa mengakses data yang up-to-date pada setiap platformnya. Data tersebut dikirim dalam format HTML, XML, dan JSON.
+
+# 3. Implementasikan checklist
 
 - Membuat suatu aplikasi baru bernama mywatchlist dengan perintah python manage.py startapp mywatchlist
 
@@ -66,32 +105,27 @@ urlpatterns = [
     path('xml/<int:id', show_xml_by_id, name='show_xml_by_id'), 
 ]
 
-- Melakukan deployment ke Heroku
-    a. membuat berkas dpl.yml berisi kode template
+- Membuat folder templates mywatchlist.html untuk tempat file HTML yang akan dirender oleh method di views.py
 
-    b. membuat sebuah berkas .gitignore berisi kode template dari website https://djangowaves.com/tips-tricks/gitignore-for-a-django-project/
+- Membuat clas Testing yang berisi method untuk menge-test apakah url sudah work
+class html_mywatchlist (TestCase):
+    def test_url_exists_at_correct_location(self):
+        response = self.client.get("/mywatchlist/html/")
+        self.assertEqual(response.status_code, 200)
+        
+- Menambahkan potongan kode release: sh -c 'python manage.py migrate && python manage.py loaddata initial_mywatchlist_data.json' ke procfile
+release: sh -c 'python manage.py migrate && python manage.py loaddata initial_mywatchlist_data.json'
+web: gunicorn project_django.wsgi --log-file -
 
-    c. menambah beberapa konfigurasi pada file settings.py proyek Django
-    import os
-    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+- Add, commit, dan push ke repository github untuk dideploy otomatis ke Django. Selesai pekerjaan sudah beres, berdoa semoga aman. :)
 
-    d. menambah * ke dalam ALLOWED_HOSTS pada settings.py untuk dapat memberikan akses ke semua host
+#  Postman
 
-    e. menambah middleware baru ke dalam variabel MIDDLEWARE di settings.py
+http://localhost:8000/mywatchlist/html
+![](messageImage_1663769480804.jpg)
 
-    f. Add, commit, dan push perubahan yang dilakukan ke GitHub pribadi.
+http://localhost:8000/mywatchlist/json
+![](messageImage_1663769797074.jpg)
 
-    g. menambah aplikasi baru di heroku.
-
-    h. membuka konfigurasi repositori GitHub dan membuka bagian Secrets untuk GitHub Actions (Settings -> Secrets -> Actions).
-
-    i. menambah variabel repository secret 
-    (NAME)HEROKU_APP_NAME
-    (VALUE)HEROKU_API_KEY
-
-    j. Simpan variabel-variabel tersebut.
-    
-    k. membuka tab GitHub Actions dan jalankan kembali workflow yang gagal.
-
-## Mengakses tiga URL di poin 6 menggunakan Postman, menangkap screenshot, dan menambahkannya ke dalam README.md
+http://localhost:8000/mywatchlist/xml
+![](messageImage_1663769844865.jpg)
