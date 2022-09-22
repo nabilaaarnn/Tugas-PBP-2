@@ -1,8 +1,47 @@
+## Assignment 3 PBP
 
+Nama : Rizka Nisrina Nabila
+NPM : 2106653344
+Kelas : PBP - B
 
+## Link
 
+Main Page : 
+https://tugas2rizka.herokuapp.com/
 
-## 3. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+Main Page :
+https://tugas2rizka.herokuapp.com/katalog/
+
+Mywatchlist Page :
+https://tugas2rizka.herokuapp.com/mywatchlist/
+
+## 1. Perbedaan XML, HTML, dan JSON
+
+# XML (Extensible Markup Language)
+1. Berguna untuk menyimpan data dan pertukaran data
+2. Tag bersifat case sensitive
+3. Data yang disimpan di-wrap oleh tag
+4. Ukuran dokumen dan file besar
+5. Harus menggunakan tag penutup
+
+# HTML (Hypertext Markup Language)
+1. Berguna untuk mendisplay suatu dokumen ke web browser
+2. Tag bersifat insensitive
+3. Data yang ingin ditampilkan di-wrap oleh tag
+4. Merupakan bahasa markup standar
+5. Tidak mengandung informasi strukturan
+
+#JSON (JavaScript Obeject Notation)
+1. Berguna untuk menyimpan data dan pertukaran data
+2. Tidak ada tag atau data yang tidak terpakai
+3. Lebih mudah digunakan sekaligus lebih cepat daripada XML saat implementasi AJAX
+4. Data disimpan dalam bentuk string
+5. Ukuran dokumen ringkas dan mudah dibaca
+
+## 2. Data delivery dalam pengimplementasian sebuah platform
+Data delivery dibutuhkan saat akan memindahkan data ddari satu platform ke platform lain. Data delivery bisa saja membuat terjadinya transfer data sehingga untuk aplikasi yang dikembangkan pada berbagai platform berbeda bisa mengakses data yang up-to-date pada setiap platformnya. Data tersebut dikirim dalam format HTML, XML, dan JSON.
+
+## 3. Implementasikan checklist
 
 - Membuat suatu aplikasi baru bernama mywatchlist dengan perintah python manage.py startapp mywatchlist
 
@@ -94,8 +133,13 @@ urlpatterns = [
     
     k. membuka tab GitHub Actions dan jalankan kembali workflow yang gagal.
     
-##  Mengakses tiga URL di poin 6 menggunakan Postman, menangkap screenshot, dan menambahkannya ke dalam README.md
+##  Postman
 
+http://localhost:8000/mywatchlist/html
 ![](messageImage_1663769480804.jpg)
+
+http://localhost:8000/mywatchlist/json
 ![](messageImage_1663769797074.jpg)
+
+http://localhost:8000/mywatchlist/xml
 ![](messageImage_1663769844865.jpg)
