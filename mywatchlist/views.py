@@ -7,10 +7,20 @@ from django.core import serializers
 
 def show_mywatchlist(request):
     data_mywatchlist = Mywatchlist.objects.all()
+
+    sudah = 0
+    belum = 0
+    for o in data_mywatchlist:
+        if o.watched == "Sudah ditonton":
+            sudah +=1
+        else:
+            belum +=1
+
     context = {
-        'watchlist' : data_mywatchlist,
-        'nama': 'Nabila',
-        'npm' : '2106653344'
+        'watchlist_item'    : data_mywatchlist,
+        'nama'              :"Rizka Nisrina Nabila",
+        'npm'               : 2106653344,
+        'watchlist'         : data_mywatchlist
     }
     return render(request, "mywatchlist.html", context)
 
