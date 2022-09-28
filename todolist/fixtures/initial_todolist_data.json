@@ -1,0 +1,12 @@
+[
+    {
+        "model": "todolist.Todolist",
+        "pk": 1,
+        "fields": {
+            "user": "iPhone 12 Pro Max",
+            "date": "2022-09-24",
+            "title":"Tugas 04 PBP",
+            "description":"Selamat mengerjaakan tugas mengasyikkan ini"
+        }
+    }
+]
