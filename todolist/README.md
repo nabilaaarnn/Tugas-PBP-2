@@ -33,22 +33,27 @@ class todolistItem(models.Model):
     date = models.DateField()
     title = models.TextField()
     description = models.TextField()
+    done = models.BooleanField(default=False)
 
 - Menjalankan perintah
 python manage.py makemigrations
 python manage.py migrate
 
 - Membuat fungsi-fungsi yang dibutuhkan pada views.py:
+@login_required(login_url='/todolist/login/')
+def show_todolist(request):
+    ......
 def register(request):
     ......
 def login_user(request):
     ......
 def logout_user(request):
     ......
-@login_required(login_url='/todolist/login/')
-def create(request):
+def create_task(request):
     ......
 def delete(request, title):
+    ......
+def done(request, id):
     ......
 
 - Membuat folder template di dalam folder todolist berisi file-file html yang dibutuhkan menampilkan data
@@ -60,17 +65,18 @@ todolist.html
 - Tambahkan path url dengan membuat file urls.py di dalam folder todolist dan isi dengan path untuk melakukan routing ke fungsi-fungsi yang ada fi views.py
 
 from django.urls import path
-from todolist.views import delete, register, login_user, logout_user, show_todos, create, delete
+from todolist.views import delete, register, login_user, logout_user, create_task, delete, done
 
 app_name = 'todolist'
 
 urlpatterns = [
-    path('', show_todos, name='show_todos'),
-    path('create/', create,  name='create'),
+    path('', show_todolist, name='show_todolist'),
     path('register/', register, name='register'),
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
-    path('delete/<str:task_titile>/', delete, name="delete"),
+    path('create-task/', create_task, name='createtask'),
+    path('delete/<int:id>/', delete, name='delete'),
+    path('done/<int:id>/', done, name='done'),
     
 ]
 
