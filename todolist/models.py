@@ -6,3 +6,4 @@ class todolistItem(models.Model):
     date = models.DateField()
     title = models.TextField()
     description = models.TextField()
+    done = models.BooleanField(default=False)

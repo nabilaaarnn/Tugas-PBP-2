@@ -16,6 +16,7 @@
       <th>Title</th>
       <th>Description</th>
       <th>Date</th>
+      <th>Status</th>
     </tr>
     {% comment %} Add the data below this line {% endcomment %}
     {% for item in list_data %}
@@ -24,6 +25,13 @@
         <th>{{item.title}}</th>
         <th>{{item.description}}</th>
         <th>{{item.date}}</th>
+    {% if item.done %}
+        <th>Selesai</th>
+    {% else %}
+        <th>Belum Selesai</th>
+    {% endif %}
+        <th><button><a href="{% url 'todolist:done' item.id %}">Change</a></button> </th>
+        <th><button><a href="{% url 'todolist:delete' item.id %}">Delete</a></button> </th>
     </tr>
     {% endfor %}    
   </table>

@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/todolist/login/')
 def show_todolist(request):
-    data_todolist = todolistItem.objects.all()
+    data_todolist = todolistItem.objects.all().filter(user=request.user)
     context = {
     'list_data': data_todolist,
     'nama': 'Rizka Nisrina Nabila',
@@ -70,3 +70,17 @@ def create_task(request):
 
     context = {'form':form}
     return render(request, 'createtask.html', context)
+
+def delete(request, id):
+    data = todolistItem.objects.get(id=id)
+    data.delete()
+    return redirect('todolist:show_todolist')
+
+def done(request, id):
+    data = todolistItem.objects.get(id=id)
+    if data.done == False:
+        data.done = True
+    else:
+        data.done = False
+    data.save()
+    return redirect('todolist:show_todolist')
