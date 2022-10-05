@@ -82,6 +82,24 @@
     {% endfor %}
   </div>
   
+  <div class="d-flex justify-content-center align-items-center gap-3 responsive-container">
+    {% for data in list_todo %}
+    <div class="card text-center zoom">
+      <div class="card-header card-bg-rv">Date: {{data.date}}</div>
+      <div class="image-box card-bg-rv">
+        <img src="{% static "media/a3.png" %}" height="200">
+        <div class="card responsive-card">
+          <div class="card-body card-bg-rv">
+            <h5 class="card-title">{{data.title}}</h5>
+            <p class="card-text"> {{data.description}} </p>
+            <a href="{% url 'todolist:delete-task' data.id %}" class="btn btn-primary">Delete task</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  
   <div class = "nama"> 
     <p>Sesi terakhir login: {{ last_login }}</p>
     <th><a href="{% url 'todolist:createtask' %}" input class="btn btn-secondary">Create Task</a></button>
