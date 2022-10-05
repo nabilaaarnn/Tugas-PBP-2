@@ -1,43 +1,91 @@
 {% extends 'base.html' %}
 
+<title>Registrasi Akun</title>
  {% block content %}
  
- <h5>User: </h5>
+ <style>
+  body {
+      background-color: #FCF8E8;
+  }
+  table, th, tr, td{
+      font-family: Lucida Bright;
+      color: #937DC2;
+      border: 1px solid #937DC2;
+      border-collapse: collapse;
+      border-spacing: 0;
+      font-size: small;
+      margin: auto;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+      background-color: #FFE6F7;
+      background-image: linear-gradient(315deg, #FFE6F7 0%, #FFFFFF 74%);
+
+  }
+  .judul{
+    font-family: Lucida Bright;
+    color: #937DC2;
+    font-size: large;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .nama{
+    font-family: Lucida Bright;
+    color: #937DC2;
+    font-size: medium;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+</style>
+
+  <div class= "judul">
+    <h1>Todolist</hi>
+  </div>
   <div class = "ukuranNama"> 
-  <p>{{user}}</p>
+
+  <div class= "nama">
+    <h5>User: {{user}}</h5>
+  </div>
+
   </div>
   
   <br>
 
   <div class = "container">   
-  <table>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Date</th>
-      <th>Status</th>
-    </tr>
-    {% comment %} Add the data below this line {% endcomment %}
-    {% for item in list_data %}
-    <tr>
-        <th>{{item.user}}</th>
-        <th>{{item.title}}</th>
-        <th>{{item.description}}</th>
-        <th>{{item.date}}</th>
-    {% if item.done %}
-        <th>Selesai</th>
-    {% else %}
-        <th>Belum Selesai</th>
-    {% endif %}
-        <th><button><a href="{% url 'todolist:done' item.id %}">Change</a></button> </th>
-        <th><button><a href="{% url 'todolist:delete' item.id %}">Delete</a></button> </th>
-    </tr>
-    {% endfor %}    
-  </table>
-    <h5>Sesi terakhir login: {{ last_login }}</h5>
-    <button><a href="{% url 'todolist:createtask' %}">Create Task</a></button>
-    <button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+
+    <div class="d-flex justify-content-center align-items-center gap-3">
+    {% for card in list_data %}
+    {#  Single Card Template:#}
+    <div class="card" style="width: 15rem; margin: 10px; align-items: center;">
+      <img src="{{ card.image }}" class="card-img-top" >
+      <div class="card-body">
+        <div style="display: flex; flex-direction: row">
+          <h5 class="card-title">{{ card.title }}</h5>
+          {#  Colored cirlce:#}
+          <div style="
+            background: {{ card.color }}
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+            border-radius: 50%;
+          "></div>
+        </div>
+        <p class="card-text">{{ card.description }}</p>
+        <th><a href="{% url 'todolist:delete' card.id %}" input class="btn btn-secondary">Delete</a></button> </th>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  
+  <div class = "nama"> 
+    <p>Sesi terakhir login: {{ last_login }}</p>
+    <th><a href="{% url 'todolist:createtask' %}" input class="btn btn-secondary">Create Task</a></button>
+    <th><a href="{% url 'todolist:logout' %}" input class="btn btn-secondary">Logout</a></button>
   </div> 
 
  {% endblock content %}

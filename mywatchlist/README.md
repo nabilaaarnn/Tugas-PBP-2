@@ -56,7 +56,8 @@ app_name = 'mywatchlist'
 urlpatterns = [
     path('', show_mywatchlist, name='show_mywatchlist'),
 ]
-Daftarkan juga aplikasi wishlist ke dalam urls.py yang ada pada folder project_django
+
+- Daftarkan juga aplikasi mywatchlist ke dalam urls.py yang ada pada folder project_django
 path('mywatchlist/', include('mywatchlist.urls')),
 
 -  Membuat sebuah model Mywatchlist

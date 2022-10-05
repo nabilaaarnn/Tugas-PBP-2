@@ -6,7 +6,29 @@
 
 {% block content %}
 
+<style>
+    body {
+        background-color: #FCF8E8;
+    }
+    .login {
+        font-family: Lucida Bright;
+        color: #937DC2;
+        font-size: medium;
+        margin: auto;
+        display: block;
+        padding: 70px;
+    }
+    table{
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+</style>
+
+<body>
 <div class = "login">
+    <div class = "login container d-flex flex-column justify-content-center align-items-center">
 
     <h1>Login</h1>
 
@@ -25,7 +47,7 @@
 
             <tr>
                 <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
+                <td><input class="btn btn-secondary" type="submit" value="Login"></td>
             </tr>
         </table>
     </form>
@@ -41,5 +63,5 @@
     Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a>
 
 </div>
-
+</body>
 {% endblock content %}
