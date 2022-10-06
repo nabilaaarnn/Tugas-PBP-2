@@ -13,8 +13,7 @@ Inline CSS merupakan kode CSS yang ditulis langsung pada atribut elemen HTML. Se
 **Kelebihan**:
 - Berguna untuk memperbaiki kode dengan cepat.
 - Proses permintaan HTTP yang lebih kecil dan proses load website akan lebih cepat.
-- Sangat membantu ketika hanya ingin menguji dan melihat perubahan pada satu elemen. Kekurangan:
-- Tidak efisien karena Inline style CSS hanya bisa diterapkan pada satu elemen HTML.
+- Sangat membantu ketika hanya ingin menguji dan melihat perubahan pada satu elemen. 
 
 **Kekurangan**
 Tidak efisien karena Inline style CSS hanya bisa diterapkan pada satu elemen HTML.
@@ -24,9 +23,7 @@ Internal CSS merupakan kode CSS yang ditulis di dalam tag <style> dan kode HTML 
 
 **Kelebihan**:
 - Perubahan pada Internal CSS hanya berlaku pada satu halaman saja.
-- Class dan ID bisa digunakan oleh internal stylesheet. Kekurangan:
-- Tidak efisien apabila Anda ingin menggunakan CSS yang sama dalam beberapa file.
-- Membuat performa website lebih lemot. Sebab, CSS yang berbeda-beda akan mengakibatkan loading ulang setiap kali Anda ganti halaman website.
+- Class dan ID bisa digunakan oleh internal stylesheet. 
 
 **Kekurangan**
 - Tidak efisien apabila Anda ingin menggunakan CSS yang sama dalam beberapa file.
@@ -38,11 +35,10 @@ Eksternal CSS merupakan kode CSS yang ditulis terpisah dengan kode HTML Eksterna
 **Kelebihan**:
 - Ukuran file HTML akan menjadi lebih kecil dan struktur dari kode HTML jadi lebih rapi.
 - Loading website menjadi lebih cepat
-- File CSS dapat digunakan di beberapa halaman website sekaligus. Kekurangan:
-- Halaman akan menjadi berantakan, ketika file CSS gagal dipanggil oleh file HTML.
+- File CSS dapat digunakan di beberapa halaman website sekaligus.
 
 **Kekurangan**
-Halaman akan menjadi berantakan, ketika file CSS gagal dipanggil oleh file HTML. Hal ini terjadi disebabkan karena koneksi internet yang lambat.
+- Halaman akan menjadi berantakan, ketika file CSS gagal dipanggil oleh file HTML. Hal ini terjadi disebabkan karena koneksi internet yang lambat.
 
 ## Jelaskan tag HTML5 yang kamu ketahui.
 1. <button> : Creates a clickable button.
