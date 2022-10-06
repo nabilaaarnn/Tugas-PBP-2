@@ -1,0 +1,12 @@
+.responsive-container {
+    height: 500px;
+}
+
+@media (max-width: 750px) {
+    .responsive-container {
+        height: auto;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+}
