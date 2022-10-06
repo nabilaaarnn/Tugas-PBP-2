@@ -56,13 +56,10 @@
   
   <br>
 
-  <div class = "container">   
-
     <div class="d-flex justify-content-center align-items-center gap-3">
     {% for card in list_data %}
     {#  Single Card Template:#}
     <div class="card" style="width: 15rem; margin: 10px; align-items: center;">
-      <img src="{{ card.image }}" class="card-img-top" >
       <div class="card-body">
         <div style="display: flex; flex-direction: row">
           <h5 class="card-title">{{ card.title }}</h5>
@@ -75,8 +72,8 @@
             border-radius: 50%;
           "></div>
         </div>
-        <p class="card-text">{{ card.description }}</p>
-        <th><a href="{% url 'todolist:delete' card.id %}" input class="btn btn-secondary">Delete</a></button> </th>
+          <p class="card-text">{{ card.description }}</p>
+          <a href="{% url 'todolist:delete' card.id %}" input class="btn btn-secondary">Delete</a></button> 
       </div>
     </div>
     {% endfor %}
