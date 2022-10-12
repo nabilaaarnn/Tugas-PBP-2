@@ -20,6 +20,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
+
     }
     table{
         margin: auto;
@@ -30,6 +31,7 @@
         margin: auto;
         display: block;
         padding: 20px;
+        border-radius: 25px;
     }
 </style>
 
@@ -37,11 +39,11 @@
 <div class = "login">
     <div class = "login container d-flex flex-column justify-content-center align-items-center">
 
-    <h1>Login</h1>
+    <h1>&#127775; Login &#127775; </h1>
 
     <form method="POST" action="">
         {% csrf_token %}
-        <table>
+        <table style="background-color: #FDDE74;">
             <tr>
                 <td>Username: </td>
                 <td><input type="text" name="username" placeholder="Username" class="form-control"></td>

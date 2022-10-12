@@ -10,6 +10,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, HttpResponseNotFound
+from django.core import serializers
 
 @login_required(login_url='/todolist/login/')
 def show_todolist(request):
@@ -20,6 +22,33 @@ def show_todolist(request):
     'npm': '2106653344',
     }
     return render(request, "todolist.html", context)
+
+@login_required(login_url='/todolist/login/')
+def show_todolist_ajax(request):
+    context = {
+        'nama': 'Rizka Nisrina Nabila',
+        'npm': '2106653344',
+    }
+    return render(request, "todolist_ajax.html", context)
+
+@login_required(login_url='/todolist/login/')
+def submit_ajax(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        
+        new_data = todolistItem(user=request.user, title=title, description=description, date=datetime.datetime.now())
+        new_data.save()
+        return HttpResponse(b"CREATED", status=201)
+    return HttpResponseNotFound()
+
+def show_json(request):
+    data = todolistItem.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize("json", data))
+
+def show_json_by_id(request, id):
+    data = BarangWishlist.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def register(request):
     form = UserCreationForm()

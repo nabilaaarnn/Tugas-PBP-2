@@ -60,7 +60,7 @@ Eksternal CSS merupakan kode CSS yang ditulis terpisah dengan kode HTML Eksterna
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
 1. Pertama, kita mendefinisikan link src bootstrap ke dalam tag <head>
-2.  Kustomisasi templat untuk halaman login, register, dan create-task semenarik mungkin.
+2. Kustomisasi template untuk halaman login, register, dan create-task semenarik mungkin.
 3. Lalu, membuat struktur HTML dengan menggunakan class dan menyesuaikan bootstrap sesuai kebutuhan, untuk membuat cards pada todolist menggunakan class="card"
 4. Selanjutnya, mengubah style dari tampilan bootstrap dengan menambahkan Internal CSS ke dalam tag <style>
 5. Terakhir, men-Deploy aplikasi ke Heroku
