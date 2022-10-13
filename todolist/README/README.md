@@ -64,3 +64,32 @@ Eksternal CSS merupakan kode CSS yang ditulis terpisah dengan kode HTML Eksterna
 3. Lalu, membuat struktur HTML dengan menggunakan class dan menyesuaikan bootstrap sesuai kebutuhan, untuk membuat cards pada todolist menggunakan class="card"
 4. Selanjutnya, mengubah style dari tampilan bootstrap dengan menambahkan Internal CSS ke dalam tag <style>
 5. Terakhir, men-Deploy aplikasi ke Heroku
+
+# Tugas 6 PBP
+
+ # Link: https://tugas2rizka.herokuapp.com/todolist/ajax
+
+# Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+Synchronous adalah proses jalannya program secara sequential , disini yang dimaksud sequential ada berdasarkan antrian ekseskusi program. memungkinkan untuk menjalankan banyak proses secara bersamaan tanpa harus menunggu proses lain selesai.
+
+Asynchronous adalah proses jalannya program bisa dilakukan secara bersamaan tanpa harus menunggu proses antrian. Synchronous merupakan bagian dari Asynchronous (1 antrian) dimana proses akan dieksekusi secara bersamaan dan untuk hasil tergantung lama proses suatu fungsi synchronous
+
+# Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma Event-Driven Programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+Event Driven Programming merupakan paradigma pemrograman di mana objek dapat berkomunikasi secara tidak langsung dengan mengirimkan pesan satu sama lain melalui perantara. Pengiriman pesan tersebut dilakukan melalui event stream. Paradigma ini bergantung pada event dengan memperhatikan operasi apa yang akan diimplementasikan dari adanya event. Penerapan paradigma dalam tugas ini terdapat pada implementasi tombol submit form penambahan task. Apabila tombol ditekan, maka akan terdapat event yang di trigger dan ditangani oleh AJAX sebagai perantara untuk mengirim data yang diisi dari form ke server, Selain itu, AJAX akan memperbarui data pada section Todo list secara asynchronous.
+
+# Jelaskan penerapan asynchronous programming pada AJAX.
+Membuat view serta url path baru yang mereturn sebuah response JSON. Implementasi asynchronous programming AJAX dalam tugas ini terdapat pada function get serta post untuk mengambil serta mengirim data JSON ke server, serta mengatur tampilan pada Todo list secara asynchronous sesuai data yang ada pada database
+
+# Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+1. Membuat function baru yang mereturn response berupa JSON
+2. Menambahkan attribute onClick pada button create task yang diintegrasikan dengan AJAX serta modals pop up
+3. Menambahkan beberapa function javascript untuk melakukan get dan post request ke server
+4. Memindahkan component card menjadi response dari post request AJAX dengan data pada card yang didapat dari get request.
+
+- AJAX GET
+Pada views.py ditambahkan sebuah function untuk mengembalikan Task yang sesuai dengan user logged in dalam bentuk JSON. Views tersebut dihubungkan dengan routing /todolist/json yang ditambahkan di urls.py. Ketika website selesai di-load, dilakukan pemanggilan AJAX GET untuk mendapatkan Task dalam bentuk JSON, kemudian dimasukkan ke dalam tabel.
+
+- AJAX POST
+Tombol buat task yang sebelumnya melakukan redirect ke todolist/create_task diubah menjadi tidak melakukan redirect, tetapi memunculkan sebuah modal. Modal tersebut dibuat dengan memanfaatkan class pada Tailwind, yaitu hidden. Ketika button buat task diklik, atribut hidden akan dihapus. Sebaliknya, ketika button untuk menutup modal diklik, atribut hidden akan ditambahkan.
+
+Pada modal tersebut berisi sebuah form. Ketika form tersebut diisi dan button untuk tambah task diklik, akan dilakukan pemanggilan AJAX POST. Data pada fields form akan dikirim ke server dan kemudian diproses. Jika berhasil membuat task baru, callback function dari AJAX POST tersebut akan dipanggil dan menutup modal.

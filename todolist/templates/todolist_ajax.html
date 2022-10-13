@@ -27,18 +27,18 @@
 </head>
 <style>
 
-{% comment %} table, th, tr, td{
+table, th, tr, td{
         font-family: Lucida Bright;
         color: #937DC2;
         border: 1px solid #937DC2;
         font-size: small;
-        align-items: center;
-        justify-content: center;
         text-align: center;
-        padding: 10px;
+        padding: 5px;
         background-color: #FFE6F7;
         background-image: linear-gradient(315deg, #FFE6F7 0%, #FFFFFF 74%);
-   {% endcomment %}
+        margin: 0 auto;
+
+    }
     body {
       font-family: Lucida Bright;
       color: #937DC2;
@@ -113,8 +113,18 @@
 
     </div>
     
-    <table id="table" ></table>
-    <button  type="button" data-bs-toggle="modal" data-bs-target="#modalAddTask">Add Task</button>
+    <br>
+    <div class="d-flex justify-content-center align-items-center gap-3 responsive-container">
+    {% for card in list_data %}
+    <p class="card-text">{{ card.description }}</p>
+          <a href="{% url 'todolist:delete' card.id %}" input class="btn btn-secondary">Delete</a></button> 
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+    <table id="table" style="border: 1px solid #937DC2;"></table>
+    <button type="button" data-bs-toggle="modal" data-bs-target="#modalAddTask">Add Task</button>
     <button style="background-color: #a8a8a8;"><a style="color: #000000;"href="{% url 'todolist:logout' %}", class="custom-alert-button">Logout</a></button>
 
     
